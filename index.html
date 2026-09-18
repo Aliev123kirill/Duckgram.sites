@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="img/logo1.png" rel="icon" type="image/png">
+<title>404 — Страница не найдена</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+    background: #000;
+    color: #fff;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    overflow: hidden;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    cursor: default;
+  }
+
+  /* Атмосферный шум на фоне */
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.8) 90%),
+      repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.02) 0px,
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+    pointer-events: none;
+    z-index: 10;
+    animation: flicker 4s infinite;
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    45% { opacity: 0.95; }
+    46% { opacity: 0.6; }
+    47% { opacity: 1; }
+    92% { opacity: 0.85; }
+  }
+
+  .container {
+    text-align: center;
+    position: relative;
+    z-index: 20;
+    padding: 20px;
+  }
+
+  /* ГЛАВНАЯ ЦИФРА 404 С ГЛИТЧЕМ */
+  .glitch {
+    font-size: clamp(120px, 28vw, 320px);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    position: relative;
+    color: #fff;
+    text-shadow:
+      0 0 10px rgba(255,255,255,0.5),
+      0 0 40px rgba(255,255,255,0.3);
+    animation: glitch-skew 4s infinite linear alternate-reverse;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .glitch::before {
+    color: #fff;
+    background: #000;
+    text-shadow: -3px 0 #ff005c;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+  }
+
+  .glitch::after {
+    color: #fff;
+    background: #000;
+    text-shadow: 3px 0 #00fff7;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim-1 {
+    0%   { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 12%, 0 12%); }
+    10%  { transform: translate(-4px, 2px); clip-path: polygon(0 15%, 100% 15%, 100% 28%, 0 28%); }
+    20%  { transform: translate(3px, -3px); clip-path: polygon(0 30%, 100% 30%, 100% 42%, 0 42%); }
+    30%  { transform: translate(-3px, 1px); clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); }
+    40%  { transform: translate(2px, -2px); clip-path: polygon(0 58%, 100% 58%, 100% 68%, 0 68%); }
+    50%  { transform: translate(-2px, 3px); clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); }
+    60%  { transform: translate(4px, -1px); clip-path: polygon(0 82%, 100% 82%, 100% 92%, 0 92%); }
+    70%  { transform: translate(-1px, 2px); clip-path: polygon(0 5%, 100% 5%, 100% 18%, 0 18%); }
+    80%  { transform: translate(3px, -3px); clip-path: polygon(0 22%, 100% 22%, 100% 35%, 0 35%); }
+    90%  { transform: translate(-4px, 1px); clip-path: polygon(0 40%, 100% 40%, 100% 52%, 0 52%); }
+    100% { transform: translate(0); clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%); }
+  }
+
+  @keyframes glitch-anim-2 {
+    0%   { transform: translate(0); clip-path: polygon(0 82%, 100% 82%, 100% 100%, 0 100%); }
+    10%  { transform: translate(4px, -2px); clip-path: polygon(0 70%, 100% 70%, 100% 84%, 0 84%); }
+    20%  { transform: translate(-3px, 3px); clip-path: polygon(0 55%, 100% 55%, 100% 68%, 0 68%); }
+    30%  { transform: translate(3px, -1px); clip-path: polygon(0 40%, 100% 40%, 100% 54%, 0 54%); }
+    40%  { transform: translate(-2px, 2px); clip-path: polygon(0 25%, 100% 25%, 100% 38%, 0 38%); }
+    50%  { transform: translate(2px, -3px); clip-path: polygon(0 10%, 100% 10%, 100% 22%, 0 22%); }
+    60%  { transform: translate(-4px, 1px); clip-path: polygon(0 0, 100% 0, 100% 14%, 0 14%); }
+    70%  { transform: translate(1px, -2px); clip-path: polygon(0 88%, 100% 88%, 100% 100%, 0 100%); }
+    80%  { transform: translate(-3px, 3px); clip-path: polygon(0 72%, 100% 72%, 100% 86%, 0 86%); }
+    90%  { transform: translate(4px, -1px); clip-path: polygon(0 58%, 100% 58%, 100% 70%, 0 70%); }
+    100% { transform: translate(0); clip-path: polygon(0 45%, 100% 45%, 100% 58%, 0 58%); }
+  }
+
+  @keyframes glitch-skew {
+    0%   { transform: skew(0deg); }
+    20%  { transform: skew(0deg); }
+    21%  { transform: skew(-2deg); }
+    22%  { transform: skew(1deg); }
+    23%  { transform: skew(0deg); }
+    60%  { transform: skew(0deg); }
+    61%  { transform: skew(1.5deg); }
+    62%  { transform: skew(0deg); }
+    100% { transform: skew(0deg); }
+  }
+
+  /* ТЕКСТ ПОД ЦИФРОЙ */
+  .subtitle {
+    font-size: clamp(14px, 1.6vw, 20px);
+    letter-spacing: 0.4em;
+    margin-top: 24px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    min-height: 1.4em;
+  }
+
+  .description {
+    font-size: clamp(12px, 1.1vw, 15px);
+    letter-spacing: 0.15em;
+    margin-top: 16px;
+    opacity: 0.5;
+    text-transform: uppercase;
+    min-height: 1.4em;
+  }
+
+  /* ТЕРМИНАЛЬНЫЙ КУРСОР-БЛОК */
+  .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    background: #fff;
+    margin-left: 2px;
+    vertical-align: -0.15em;
+    box-shadow: 0 0 12px rgba(255,255,255,0.7);
+    animation: cursor-blink 1s steps(2, start) infinite;
+  }
+
+  @keyframes cursor-blink {
+    0%, 50%   { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+
+  /* Кнопка назад */
+  .back-btn {
+    display: inline-block;
+    margin-top: 48px;
+    padding: 14px 36px;
+    font-family: inherit;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+  }
+
+  .back-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition: opacity 0.6s ease, transform 0.6s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .back-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+
+  .back-btn:hover {
+    color: #000;
+    border-color: #fff;
+    box-shadow: 0 0 30px rgba(255,255,255,0.4);
+  }
+
+  .back-btn:hover::before {
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="glitch" data-text="404">404</div>
+
+    <div class="subtitle" id="subtitle"></div>
+
+    <div class="description" id="description"></div>
+
+    <a href="#" class="back-btn" id="backBtn">← На главную</a>
+  </div>
+
+<script>
+  // Печатная машинка: печатает текст посимвольно с курсором в конце
+  function typeWriter(element, text, speed, callback) {
+    // создаём мигающий курсор-блок
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+
+    let i = 0;
+    element.textContent = '';
+    element.appendChild(cursor);
+
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        // вставляем символ ПЕРЕД курсором, чтобы курсор шёл за текстом
+        cursor.insertAdjacentText('beforebegin', text.charAt(i));
+        i++;
+      } else {
+        clearInterval(timer);
+        // по завершении убираем курсор этой строки (если это не последняя)
+        if (callback) callback(cursor);
+      }
+    }, speed);
+  }
+
+  // Запуск цепочки печати
+  window.addEventListener('DOMContentLoaded', () => {
+    const subtitle = document.getElementById('subtitle');
+    const description = document.getElementById('description');
+    const backBtn = document.getElementById('backBtn');
+
+    // 1) Печатаем «СТРАНИЦА НЕ НАЙДЕНА»
+    typeWriter(subtitle, 'СТРАНИЦА НЕ НАЙДЕНА', 120, (cursorSub) => {
+      // 2) Небольшая пауза — затем печатаем описание
+      setTimeout(() => {
+        cursorSub.style.display = 'none'; // прячем курсор первой строки
+
+        typeWriter(
+          description,
+          '// ОШИБКА СОЕДИНЕНИЯ // ФАЙЛ ОТСУТСТВУЕТ //',
+          75,
+          (cursorDesc) => {
+            // 3) Оставляем курсор мигать в конце описания НАВСЕГДА,
+            //    а затем проявляем кнопку
+            setTimeout(() => {
+              backBtn.classList.add('visible');
+            }, 400);
+          }
+        );
+      }, 350);
+    });
+  });
+</script>
+
+</body>
+</html>

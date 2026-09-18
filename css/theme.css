@@ -1,0 +1,168 @@
+/* ============================================================
+   DUCKGRAM — СВЕТЛАЯ ТЕМА и переключатель темы
+   Отдельное подключение: css/theme.css
+   Кнопка #theme-toggle закомментирована в HTML, но функционал
+   (js/theme.js) и дизайн (этот файл) полностью сохранены.
+   ============================================================ */
+
+/* ----- СВЕТЛАЯ ТЕМА: ПЕРЕМЕННЫЕ ----- */
+[data-theme="light"] {
+    --color-bg-dark: #f4f4f6;
+    --color-bg-light: #ededf1;
+    --color-bg-mid: #e1e2e8;
+    --color-text-light: #1c1d22;
+    --color-text-muted: #50535c;
+
+    --gradient-dark: linear-gradient(135deg, #f4f4f6 0%, #e9eaef 50%, #dcdde4 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.28) 100%);
+    --gradient-overlay: linear-gradient(180deg, rgba(244,244,246,0) 0%, rgba(244,244,246,0.85) 100%);
+}
+
+/* ----- СВЕТЛАЯ ТЕМА: ФОН СТРАНИЦЫ ----- */
+[data-theme="light"] body {
+    background-color: #e9eaee;
+    background-image:
+        linear-gradient(180deg, #7d808c 0%, #c3c5cd 45%, #ebecf0 100%),
+        radial-gradient(circle at 20% 20%, rgba(120,125,140,0.18) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(150,155,170,0.16) 0%, transparent 50%);
+}
+
+/* ----- ИКОНКА КНОПКИ ТЕМЫ: солнце (тёмная тема) / луна (светлая) ----- */
+.dg-theme-sun {
+    display: block;
+}
+
+.dg-theme-moon {
+    display: none;
+}
+
+[data-theme="light"] .dg-theme-sun {
+    display: none;
+}
+
+[data-theme="light"] .dg-theme-moon {
+    display: block;
+}
+
+/* ----- СВЕТЛАЯ ТЕМА: ПЕРЕОПРЕДЕЛЕНИЯ ПОВЕРХНОСТЕЙ ----- */
+[data-theme="light"] .site-header {
+    background: rgba(244, 244, 246, 0.85);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .site-header .nav-divider {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .content-block.dark {
+    background: linear-gradient(180deg, rgba(220,221,228,0.55) 0%, rgba(244,244,246,0.10) 100%);
+}
+
+[data-theme="light"] .content-block.light {
+    background: linear-gradient(180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0) 70%);
+}
+
+[data-theme="light"] .block-title {
+    text-shadow: 0 4px 30px rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .btn,
+[data-theme="light"] .nav-cta,
+[data-theme="light"] .lang-toggle,
+[data-theme="light"] .dg-burger,
+[data-theme="light"] .achievement-toggle {
+    color: #1c1d22;
+    border-color: rgba(0, 0, 0, 0.18);
+    background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.35));
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12), inset 0 1px 1px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(0,0,0,0.04);
+    text-shadow: none;
+}
+
+[data-theme="light"] .btn:hover,
+[data-theme="light"] .nav-cta:hover,
+[data-theme="light"] .lang-toggle:hover,
+[data-theme="light"] .dg-burger:hover,
+[data-theme="light"] .achievement-toggle:hover {
+    color: #1c1d22;
+    border-color: rgba(0, 0, 0, 0.35);
+    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.55));
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15), inset 0 1px 1px rgba(255,255,255,0.95), inset 0 -1px 1px rgba(0,0,0,0.05);
+}
+
+[data-theme="light"] .dg-burger .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(28,29,34,0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+[data-theme="light"] .achievement-item,
+[data-theme="light"] .privacy-card,
+[data-theme="light"] .faq-item,
+[data-theme="light"] .dl-card {
+    background: var(--gradient-card);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .achievement-item:hover {
+    border-color: rgba(0, 0, 0, 0.20);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .dl-icon {
+    border-color: rgba(0, 0, 0, 0.25);
+    color: #4b4e56;
+}
+
+[data-theme="light"] .privacy-card h3 {
+    border-bottom-color: rgba(0, 0, 0, 0.10);
+}
+
+[data-theme="light"] .dl-note {
+    border-top-color: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .faq-q:hover {
+    color: #0b0c0f;
+}
+
+[data-theme="light"] .faq-q::after {
+    border-color: rgba(0, 0, 0, 0.20);
+}
+
+[data-theme="light"] .faq-item.open .faq-q::after {
+    color: #1c1d22;
+    border-color: #1c1d22;
+}
+
+[data-theme="light"] .img-placeholder {
+    background: linear-gradient(135deg, #d9dbe2, #ededf1);
+    color: #50535c;
+}
+
+[data-theme="light"] .site-footer,
+[data-theme="light"] footer {
+    background: var(--gradient-dark) !important;
+    background-color: #e9eaef !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .footer-logo-text {
+    color: #1c1d22;
+}
+
+[data-theme="light"] .particle {
+    background: radial-gradient(circle, rgba(28, 29, 34, 0.35), rgba(28, 29, 34, 0));
+}
+
+[data-theme="light"] ::selection {
+    background: rgba(28, 29, 34, 0.90);
+    color: #f4f4f6;
+}
+
+[data-theme="light"] ::-moz-selection {
+    background: rgba(28, 29, 34, 0.90);
+    color: #f4f4f6;
+}
+
+[data-theme="light"] .dl-os-badge {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
