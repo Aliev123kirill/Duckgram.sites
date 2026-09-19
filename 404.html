@@ -241,7 +241,7 @@
 
     <div class="description" id="description"></div>
 
-    <a href="index.html" class="back-btn" id="backBtn">← На главную</a>
+    <a href="index.html" class="back-btn" id="backBtn">← Go to the main </a>
   </div>
 
 <script>
@@ -275,14 +275,14 @@
     const backBtn = document.getElementById('backBtn');
 
     // 1) Печатаем «СТРАНИЦА НЕ НАЙДЕНА»
-    typeWriter(subtitle, 'СТРАНИЦА НЕ НАЙДЕНА', 120, (cursorSub) => {
+    typeWriter(subtitle, 'NOT FOUND', 120, (cursorSub) => {
       // 2) Небольшая пауза — затем печатаем описание
       setTimeout(() => {
         cursorSub.style.display = 'none'; // прячем курсор первой строки
 
         typeWriter(
           description,
-          '// ОШИБКА СОЕДИНЕНИЯ // ФАЙЛ ОТСУТСТВУЕТ //',
+          '// CONNECTION ERROR // MISSING FILE // OR THE PAGE IS NOT INTENDED FOR PUBLIC VIEWING//',
           75,
           (cursorDesc) => {
             // 3) Оставляем курсор мигать в конце описания НАВСЕГДА,
