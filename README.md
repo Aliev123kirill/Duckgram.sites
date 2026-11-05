@@ -1,1 +1,1 @@
-Duckgram.sites
+Duckgram.sites - duckgram.p7z.ru
