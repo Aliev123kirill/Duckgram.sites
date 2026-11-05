@@ -1,1 +1,1 @@
-Duckgram.sites - [duckgram.p7z.ru](duckgram.p7z.ru)
+Duckgram.sites - [duckgram.p7z.ru]([duckgram.p7z.ru](https://duckgram.p7z.ru/))
